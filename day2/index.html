@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <title>라인 플러스</title>
+    <link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css">
+    <style> 
+        
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        ul {
+            list-style: none;
+        }
+
+        html{
+            font-size: 10px;
+        }
+        body{
+            font-size: 1.4rem;
+            font-family: 'Spoqa Han Sans', sans-serif ;
+            font-weight: 400;
+            background: #fff;
+            color: #181818;
+            /* font-family: Georgia, 'Times New Roman', Times, sans-serif;     컴퓨터에 조지아 없음 뉴로만 없으면 타임즈 순으로 글꼴/san-serif 빤듯한 글꼴 */
+        }
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+        .header, .main, .footer{
+            width: 1300px;
+            margin: 0 auto; 
+        }
+        .header{
+            position: relative;
+            height: 90px;
+        }
+        .navigation{
+            display: inline-block;
+            position: fixed;
+            z-index: 100;
+            background-color: hsla(0,0%,100%,.95);
+            width: 100%;
+            height: 90px;
+            padding-left: 120px;
+        } 
+        .navigation li{
+            display: inline-block;
+            padding: 25px 0px;
+            line-height: 44px;
+            font-weight: 400;
+        }
+        .navigation ul{
+            display: inline-block;
+        }
+        .logo{
+            margin-top: 33px;
+            width: 70px;
+            height: 25px;
+            top: 0;
+            left: 0;
+            float: left;
+            cursor: pointer;
+        }
+        
+        .main-menu.main-intro-company{
+            margin-left: 130px;
+        }
+        .main-menu{
+            margin: 0px 20px;
+        }
+        .hidden-menu{
+            position: absolute;
+            background: red;
+            height: 130px;
+            left: 0;
+            top: 0;
+            /* width: 1px;
+            height: 1px;
+            overflow: hidden;
+            margin: -1px;
+            clip : rect(0 0 0 0); */
+        }  
+        .sub-intro-company{
+            width: 100%;
+            height: 90px;
+            left: 0;
+            top: 90px;
+            background-color: hsla(0,0%,94%,.95);
+            position: absolute;
+            z-index: 100;
+            overflow: hidden;
+            max-height: 0px;
+        }
+        .sub-business{
+            width: 100%;
+            height: 90px;
+            left: 0;
+            top: 90px;
+            background-color: hsla(0,0%,94%,.95);
+            position: absolute;
+            z-index: 100;
+            overflow: hidden;
+            max-height: 0;
+        }
+        .sub-promotion{
+            width: 100%;
+            height: 90px;
+            left: 0;
+            top: 90px;
+            background-color: hsla(0,0%,94%,.95);
+            position: absolute;
+            z-index: 100;
+            overflow: hidden;
+            max-height: 0;
+            
+        }
+        .sub-recruit{
+            width: 100%;
+            height: 90px;
+            left: 0;
+            top: 90px;
+            background-color: hsla(0,0%,94%,.95);
+            position: absolute;
+            z-index: 100;
+            overflow: hidden;
+            max-height: 0;
+        }
+        .sitemap{
+            display: inline-block;
+            margin-left: 300px;
+        }
+        #lan-select{
+            display: inline-block;
+            margin-left: 30px;
+        }
+        
+        .main-intro-company:hover .sub-intro-company
+        ,.main-business:hover .sub-business
+        ,.main-promotion:hover .sub-promotion
+        ,.main-recruit:hover .sub-recruit{
+            max-height: 90px;
+        }
+        
+        .main{
+        }
+        .liveContents{
+            position: relative;
+            box-sizing: border-box;
+            padding-top: 90px;
+            height: 600px;
+            text-align: center;
+            width: 100%;
+        }
+        #myVideo{
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 100%;
+            height: 600px;
+        }
+        .liveContents-title{
+            box-sizing: border-box;
+            padding-top: 246px;
+            color: white;
+            position: absolute;
+            text-align: center;
+            font-size: 45px;
+            font-weight: 300;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+        .liveContents-pageLink{
+            box-sizing: border-box;
+            position: relative;
+            display: table;
+            margin: 0 auto;
+            margin-top: 350px;
+            color: white;
+            line-height: 43px;
+            padding: 0 32px 0 32px;
+            border: 1px solid hsla(0,0%,100%,.7);
+            border-radius: 22px;
+            z-index: 1;
+        }
+            
+
+        .newsRoom{
+            height: 500px;
+            max-width: 1100px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 0; 
+            position: relative;
+            
+        }
+        .newRoom-title{
+            font-size: 30px;
+            margin-left: 10px;
+        }
+        .more_btn{
+            position: absolute;
+            right: 7px;
+        }
+        .newsRoom-Contents{
+            padding: 20px;
+        }
+        .newsItem{
+            margin-bottom: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 18px;
+            line-height: 1.2;
+            display: inline-block;
+            width: 47%;
+        }
+        
+        .otherInfo{
+            background: orange;
+            height: 200px;
+        }
+        .footer{
+            background: gray;
+            height: 25vh;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navigation">
+        <h1 class="logo"><a href="#"><img src="logo.png" alt="logoimg" width="70px" height="25px"></a></h1>
+            <ul>
+                <li class="main-menu main-intro-company">
+                    <a href="">회사소개</a>
+                    <ul class="hidden-menu sub-intro-company">
+                        <li><a href="">회사소개</a></li>
+                        <li>
+                            <a href="">LINE's Mission</a>
+                            <ul>
+                                <li><a href="">MISSION</a></li>
+                                <li><a href="">LINE STYLE</a></li>
+                                <li><a href="">LINE CODE</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">LINE그룹 행동규범</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">LINE로고 사용 가이드</a></li>
+                    </ul>
+                </li>
+                <li class="main-menu main-business">
+                    <a href="">사업</a>
+                    <ul class="hidden-menu sub-business">
+                        <li><a href="">서비스</a></li>
+                        <li><a href="">캐릭터 사업</a></li>
+                    </ul>
+                </li>
+                <li class="main-menu main-promotion">
+                    <a href="">홍보</a>
+                    <ul class="hidden-menu sub-promotion">
+                        <li><a href="">Global News</a></li>
+                        <li><a href="">기사 및 보도자료</a></li>
+                        <li><a href="">Blog & SNS</a></li>
+                    </ul>
+                </li>
+                <li class="main-menu main-recruit">
+                    <a href="">채용</a>
+                    <ul class="hidden-menu sub-recruit">
+                        <li><a href="">일과 사람</a></li>
+                        <li><a href="">채용공고</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h2 class="sitemap"><a href="">sitemap</a></h2>
+            <select name="language-select" id="lan-select">
+                <option value="kor">한국어</option>
+                <option value="eng">영어</option>
+                <option value="jap">일본어</option>
+                <option value="chi">중국어</option>
+                <option value="arp">아랍어</option>
+                <option value="sun">선휘어</option>
+            </select>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="liveContents">
+            <video autoplay muted loop id="myVideo">
+                <source src="intro.mp4" type="video/mp4">
+            </video>
+            <h2 class="liveContents-title">CLOSING THE DISTANCE</h2>
+            <a href="#" class="liveContents-pageLink">Line's Mission</a>
+        </div>
+        <div class="newsRoom">
+            <h2 class="newRoom-title">NEWS ROOM</h2>
+            <a href="#" class="more_btn">more</a>
+            <div class="newsRoom-Contents">
+                <a href="#">
+                    <h3 class="newsItem">라인, 웰컴 키트 디자인 프로젝트로 iF 디자인 어워드 2019 수상</h3>
+                </a>
+                <a href="#">
+                    <h3 class="newsItem">라인-한국정보과학회 블록체인 경진대회에서 링크체인 기반 에너지 거래 플랫폼 선보인 EVlock팀 우승</h3>
+                </a>
+                <a href="#">
+                    <h3 class="newsItem">라인, 보안 역량 강화 위해 세계적 화이트해커로 구성된 ‘그레이해쉬’ 인수</h3>
+                </a>
+                <a href="#">
+                    <h3 class="newsItem">라인, 유저 의견 반영한 쉽고 편리한 핀테크 서비스 제공 위해 설문조사 실시</h3>
+                </a>
+                <a href="#">
+                    <h3 class="newsItem">라인, 글로벌 암호화폐 거래소 비트박스에 아이콘(ICX) 상장</h3>
+                </a>
+                <a href="#">
+                    <h3 class="newsItem">라인, 글로벌 개발 기술 컨퍼런스 ‘LINE DEV DAY 2018’ 개최</h3>
+                </a>
+                <a href="#">
+                    <h3 class="newsItem">라인, 글로벌 암호화폐 거래소 비트박스 모바일 앱 출시</h3>
+                </a>
+                <a href="#">
+                    <h3 class="newsItem">라인파이낸셜, KEB하나은행 인도네시아 신주인수계약 통해 인니 핀테크 사업 본격화</h3>
+                </a>
+            </div>
+        </div>
+        <div class="otherInfo">
+            <a href="#">비즈니스 제휴 문의</a>
+            <a href="#">기술정보</a>
+            <a href="#">채용공고</a>
+            <a href="#">캐릭터 사업</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <img src="#" alt="#">
+        <ul>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+        <select name="" id="">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+    </footer>
+</body>
+</html>
