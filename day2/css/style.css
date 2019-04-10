@@ -84,6 +84,9 @@ a{
     margin: -1px;
     clip : rect(0 0 0 0);
 }
+.font-gray{
+    color: gray;
+}
 
 .header, .main, .footer{
     width: 1200px;
@@ -94,37 +97,78 @@ a{
 .header{
     position: fixed;
     width: 100%;
-    z-index: 100;
+    z-index: 1;
     background-color:white;
     padding: 30px;
     height: 90px;
+    display: flex;
+    justify-content: space-evenly;
 }
 .logo{
-    float: left;
     width: 200px;
-    margin-left: 70px;
+    margin-left: 100px;
 }
 .navigation{
-    float: left;
-    width: 800px;
+    width: 900px;
 }
-.navigation li a{
-    float: left;
-    font-size: 1.8rem;
-    width: 100px;
+.main-menu{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.main-item{
+    font-size: 1.6rem;
+    font-weight: 500;
 }
 .nav-sitemap{
-    float: right;
-    width: 80px;
+    width: 400px;
+    text-align: right;
     margin-right: 30px;
 }
+.sub-menu{
+    background: rgba(243, 240, 240, 0.95);
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    padding: 30px 0px;
+    
+}
+.sub-menu-li{
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 0 15px;
+    vertical-align: top;
+}
+.sub-menu1 .sub-menu-li:first-child{
+    margin-left: 100px;
+}
+.sub-menu2 .sub-menu-li:first-child{
+    margin-left: 400px;
+}
+.sub-menu3 .sub-menu-li:first-child{
+    margin-left: 360px;
+}
+.sub-menu4 .sub-menu-li:first-child{
+    margin-left: 540px;
+}
+ 
+.sub-menu{
+    display: none;
+}
+.sub-act{
+    display: inline-block;
+}  
+
 .choice-lang{
+    margin-right: 100px;
     width: 110px;
     border: 1px solid #c8c8c8;
     border-radius: 20px;
     background-color: hsla(0,0%,100%,.95);
-    padding: 4px 0;
+    padding: 4px 15px;
 }
+
 
 /* 비디오영역 */
 .video{
@@ -133,6 +177,9 @@ a{
    position: relative;
    padding-top: 90px;
    text-align: center;
+}
+.video video{
+   width: 100%;
 }
 .content-video{
     color: white;
@@ -187,18 +234,19 @@ a{
     padding: 30px;
     overflow: hidden;
 }
-.otherinfo span{
+.title-span{
     font-size: 1.9rem;
     font-weight: 510;
     float: left;
     margin: 30px;
     width: 210px;
 }
-.otherinfo p{
+.content-span{
+    display: block;
     font-size: 1.4rem;
     font-weight: 400;
+    margin-top: 5px;
 }
-
 .footer{
     background: white;
     height: 120px;

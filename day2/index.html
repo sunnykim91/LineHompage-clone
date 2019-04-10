@@ -7,20 +7,57 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="/day2/js/main.js" defer></script>
 </head>
 <body>
     <header class="header">
         <h1 class="logo">
-            <a href="#"><img src="logo.png" alt="로고이미지" width="75px" height="30px"></a>
+            <a href="#"><img src="logo.png" alt="로고이미지"></a>
         </h1>
         <nav class="navigation">
             <h2 class="readable-hidden">메인 메뉴</h2>
-            <ul>
-                <li><a href="#">회사소개</a></li>
-                <li><a href="#">사업</a></li>
-                <li><a href="#">홍보</a></li>
-                <li><a href="#">채용</a></li>
-                <li class="nav-sitemap"><a href="#">SITEMAP</a></li>
+            <ul class="main-menu">
+                <li class="menu-item">
+                    <a href="#" class="main-item">회사소개</a>
+                    <ul class="sub-menu sub-menu1">
+                        <li class="sub-menu-li"><a href="#">회사소개</a></li>
+                        <li class="sub-menu-li">
+                            <a href="#">LINE's Mission</a>
+                            <ul class="sub-sub-menu">
+                                <li class="font-gray"><a href="#">MISSION</a></li>
+                                <li class="font-gray"><a href="#">LINE STYLE</a></li>
+                                <li class="font-gray"><a href="#">LINE CODE</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu-li"><a href="#">LINE그룹 행동 규범</a></li>
+                        <li class="sub-menu-li"><a href="#">Contact</a></li>
+                        <li class="sub-menu-li sub-menu-li-last"><a href="#">LINE로고 사용 가이드</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="main-item">사업</a>
+                    <ul class="sub-menu sub-menu2">
+                        <li class="sub-menu-li"><a href="#">서비스</a></li>
+                        <li class="sub-menu-li sub-menu-li-last"><a href="#">캐릭터사업</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="main-item">홍보</a>
+                    <ul class="sub-menu sub-menu3">
+                        <li class="sub-menu-li"><a href="#">Global News</a></li>
+                        <li class="sub-menu-li"><a href="#">기사 및 보도자료</a></li>
+                        <li class="sub-menu-li sub-menu-li-last"><a href="#">Blog & SNS</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="main-item">채용</a>
+                    <ul class="sub-menu sub-menu4">
+                        <li class="sub-menu-li"><a href="#">일과 사람</a></li>
+                        <li class="sub-menu-li sub-menu-li-last"><a href="#">채용 공고</a></li>
+                    </ul>
+                </li>
+                <li class="nav-sitemap font-gray"><a href="#">SITEMAP</a></li>
             </ul>
         </nav>
         <select class="choice-lang" name="language" id="language">
@@ -34,7 +71,7 @@
     <main class="main clearfix">
         <section class="video">
             <h2 class="readable-hidden">영상</h2>
-            <video autoplay muted loop id="myVideo" width="100%">
+            <video autoplay muted loop id="myVideo">
                 <source src="intro.mp4" type="video/mp4">
             </video>
             <div class="content-video">
@@ -99,35 +136,35 @@
         <section class="otherinfo">
             <h2 class="readable-hidden">기타정보</h2>
             <a href="#">
-                <span>
+                <span class="title-span">
                     비즈니스 제휴 문의
-                    <p>라인은 사용자들의 커뮤니케이션을</p>
-                    <p>더욱 즐겁게 만들어줄 파트너 기업을</p>
-                    <p>모집합니다.</p>
+                    <span class="content-span font-gray">라인은 사용자들의 커뮤니케이션을</span>
+                    <span class="content-span font-gray">더욱 즐겁게 만들어줄 파트너 기업을</span>
+                    <span class="content-span font-gray">모집합니다.</span>
                 </span>
             </a>
             <a href="#">
-                <span>
+                <span class="title-span">
                     기술정보
-                    <p>LINE의 개발자들은 다양한 서비스를</p>
-                    <p>개발하며, 기술적 도전을 매일</p>
-                    <p>경험하고있습니다.</p>
+                    <span class="content-span font-gray">LINE의 개발자들은 다양한 서비스를</span>
+                    <span class="content-span font-gray">개발하며, 기술적 도전을 매일</span>
+                    <span class="content-span font-gray">경험하고있습니다.</span>
                 </span>
             </a>
             <a href="#">
-                <span>
+                <span class="title-span">
                     채용공고
-                    <p>전 세계 인재들과 함께</p>
-                    <p>내커리어를 level up하고 싶다면</p>
-                    <p>지금 LINE에 조인하세요!</p>
+                    <span class="content-span font-gray">전 세계 인재들과 함께</span>
+                    <span class="content-span font-gray">내커리어를 level up하고 싶다면</span>
+                    <span class="content-span font-gray">지금 LINE에 조인하세요!</span>
                 </span>
             </a>
             <a href="#">
-                <span>
+                <span class="title-span">
                     캐릭터사업
-                    <p>메신저 속 LINE FRIENDS의</p>
-                    <p>다양한 제품들은 물론, 특별한 경험도</p>
-                    <p>선사합니다.</p>
+                    <span class="content-span font-gray">메신저 속 LINE FRIENDS의</span>
+                    <span class="content-span font-gray">다양한 제품들은 물론, 특별한 경험도</span>
+                    <span class="content-span font-gray">선사합니다.</span>
                 </span>
             </a>
         </section>
